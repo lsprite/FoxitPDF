@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.nemo.foxitpdf"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation(name: 'FoxitRDK', ext: 'aar')
+    implementation(name: 'FoxitRDKUIExtensions', ext: 'aar')
+    implementation 'com.edmodo:cropper:1.0.1'
+    //RMS
+    implementation('com.microsoft.aad:adal:1.16.3') {}
+    implementation(name: 'RMSSDK-4.2-release', ext: 'aar')
+    implementation(name: 'rms-sdk-ui', ext: 'aar')
+    //Scanning
+    implementation(name: 'FoxitPDFScan-UI', ext: 'aar')
+    implementation(name: 'FoxitMobileScanningRDK', ext: 'aar')
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:2.2.16"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.64'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+    //
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation project(path: ':XXPermissionTool')
+}

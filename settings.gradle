@@ -1,0 +1,3 @@
+include ':XXPermissionTool'
+include ':app'
+rootProject.name = "FoxitPDF"
